@@ -1,9 +1,10 @@
 mod ppm;
-use ppm::PPMWriter;
+use ppm::{Color, PPMWriter};
 
 fn main() -> std::io::Result<()> {
     let height = 720;
     let width = 1080;
-    let ppm_writer = PPMWriter::create(width, height, "out.ppm");
+    let mut ppm_writer = PPMWriter::create(width, height, "out.ppm");
+    ppm_writer.draw_pixel(width / 2, height / 2, Color::RED);
     ppm_writer.write()
 }
